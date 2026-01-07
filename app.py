@@ -14,7 +14,8 @@ st.set_page_config(
 # ---------------- LOAD MODEL ----------------
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("v2.h5")
+    return tf.keras.models.load_model("skin_cancer_mobilenetv2.h5")
+
 
 model = load_model()
 
@@ -100,3 +101,4 @@ if uploaded_file is not None:
             "Probability": prediction[0]
         })
         st.bar_chart(df_probs.set_index("Class"))
+
